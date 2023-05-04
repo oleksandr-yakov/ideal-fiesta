@@ -18,21 +18,16 @@ def get_weather():
 
 	response = requests.get(url).json()
 
-
-	if response['cod'] == 200:
+	if response['cod'] == '404':
+		error_message = f"Sorry, we couldn't find weather information for {city}. Please try again."
+		return render_template('index.html', error=error_message)
+	else:
 		weather = {
 			'city': city,
 			'temperature': response['main']['temp'],
 			'description': response['weather'][0]['description']
 		}
-
 		return render_template('index.html', weather=weather)
-	else:
-		return jsonify({'error': 'City not found'}), 404
-
-@app.errorhandler(404)
-def page_not_found(e):
-	return render_template('404.html'), 404
 
 
 if __name__ == '__main__':
