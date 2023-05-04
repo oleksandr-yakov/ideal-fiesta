@@ -120,5 +120,18 @@ def synoptyk_for_user():
     return render_template('synoptyk.html')
 
 
+@app.route('/register', methods=['GET', 'POST'])
+def register_user():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+
+        # Add code here to register user in your database
+
+        return 'User registered successfully!'
+    else:
+        return render_template('register.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
