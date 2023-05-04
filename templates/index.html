@@ -19,6 +19,11 @@
 				<p>Weather Description: {{ weather['description'] }}</p>
 			</div>
 		{% endif %}
+		{% if error %}
+		<div id="error-message">
+			<p>{{ error }}</p>
+		</div>
+		{% endif %}
 	</div>
 </body>
 </html>
