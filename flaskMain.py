@@ -20,14 +20,14 @@ def get_weather():
 
 	if response['cod'] == '404':
 		error_message = f"Sorry, we couldn't find weather information for {city}. Please try again."
-		return render_template('index.html', error=error_message)
+		return render_template('synoptyk.html', error=error_message)
 	else:
 		weather = {
 			'city': city,
 			'temperature': response['main']['temp'],
 			'description': response['weather'][0]['description']
 		}
-		return render_template('index.html', weather=weather)
+		return render_template('synoptyk.html', weather=weather)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -42,6 +42,13 @@ def register_user():
         return 'User registered successfully!'
     else:
         return render_template('register.html')
+
+
+@app.route('/synoptyk')
+def synoptyk_for_user():
+	return render_template('synoptyk.html')
+
+
 
 if __name__ == '__main__':
 	app.run(debug=True)
