@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<header>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-xxl">
+    <a class="navbar-brand" href="#">
+      <img src="https://beolin.club/uploads/posts/2022-09/1664567544_3-beolin-club-p-yazicheskoe-solntse-risunok-instagram-4.jpg" alt="Bootstrap" width="70" height="70">
+    </a>
+	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+        </li>
+        <li class="nav-item">
+		  <a class="nav-link" href="{{ url_for('synoptyk_for_user') }}">Watch the weather</a>
+        </li>
+      </ul>
+      	<div class="btn btn-outline-success me-2">
+			<a href="{{ url_for('register') }}">Register</a>
+        </div>
+		<div class="btn btn-outline-success me-2">
+			<a href="{{ url_for('login') }}">login</a>
+        </div>
+    </div>
+  </div>
+</nav>
+</header>
+<body>
+
+</body>
+
+
+</html>
