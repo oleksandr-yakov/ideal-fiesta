@@ -1,15 +1,8 @@
 from flask import Flask, render_template, request
-import requests, datetime, mysql.connector
-from config import TOKEN
+import requests, datetime
+from config import TOKEN, smiles, db
 
 app = Flask(__name__)
-
-db = mysql.connector.connect(
-    host='localhost',
-    user='root',
-    password='nuhayserver',
-    database='prodMain'
-)
 
 
 @app.route('/')
@@ -38,16 +31,7 @@ def get_weather():
 
 @app.route('/proweather', methods=['POST'])
 def ProGet_weather():
-    smiles = {
-        "Clear": "\U00002600",
-        "Clouds": "\U00002601",
-        "Rain": "\U00002614",
-        "Drizzle": "\U00002614",
-        "Thunderstorm": "\U000026A1",
-        "Snow": "\U0001F328",
-        "Mist": "\U0001F32B",
-        "Haze": "\U0001F32B"
-    }
+
     city = request.form['city']
 
     url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={TOKEN}'
@@ -119,19 +103,6 @@ def login():
 def synoptyk_for_user():
     return render_template('synoptyk.html')
 
-
-@app.route('/register', methods=['GET', 'POST'])
-def register_user():
-    if request.method == 'POST':
-        username = request.form['username']
-        email = request.form['email']
-        password = request.form['password']
-
-        # A database
-
-        return 'User registered successfully!'
-    else:
-        return render_template('register.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
