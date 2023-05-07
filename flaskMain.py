@@ -127,7 +127,7 @@ def register_user():
         email = request.form['email']
         password = request.form['password']
 
-        # Add code here to register user in your database
+        # A database
 
         return 'User registered successfully!'
     else:
