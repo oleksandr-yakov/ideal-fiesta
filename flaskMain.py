@@ -5,9 +5,10 @@ from config import TOKEN
 app = Flask(__name__)
 
 db = mysql.connector.connect(
+    port="3306",
     host='localhost',
     user='root',
-    password='nuhayserver',
+    password='K4he3h11',
     database='prodMain'
 )
 
@@ -119,6 +120,13 @@ def login():
 def synoptyk_for_user():
     return render_template('synoptyk.html')
 
+@app.route('/index_pro')
+def index_pro():
+    return render_template('index_pro.html')
+
+@app.route('/pro')
+def pro_wether():
+    return render_template('pro.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

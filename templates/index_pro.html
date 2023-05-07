@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_pro.html' %}
 
 {% block body %}
 	<div class="container">
@@ -47,14 +47,12 @@
 	</div>
 	<footer>
       <nav class="navbar bg-body-tertiary">
-        <div class="container-xxl">
+        <div class="container">
           <a class="navbar-brand" href="https://t.me/WeatherFrom_bot">
-             <img src="data:image/png;base64,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" alt="Bootstrap" width="50" height="50">
+             <img src="https://cdn-icons-png.flaticon.com/512/123/123726.png" alt="Bootstrap" width="50" height="50">
               Telegram
           </a>
         </div>
       </nav>
     </footer>
-
 {% endblock %}
-
