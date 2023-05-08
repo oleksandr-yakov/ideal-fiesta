@@ -6,9 +6,9 @@ app = Flask(__name__)
 
 db = mysql.connector.connect(
     port="3306",
-    host='localhost',
-    user='root',
-    password='K4he3h11',
+    host='db',  #172.31.0.2 bladsky dhcp syka 4 hour yebal just use domen llike- db. FUCK!!! no dla testov ono not working treba IP ...
+    user='dev',
+    password='Ag111^@ergnuio',
     database='prodMain'
 )
 
@@ -27,8 +27,8 @@ def get_weather():
 
     response = requests.get(url).json()
     if response['cod'] == '404':
-        error_message = f"Sorry, we couldn't find weather information for {city}. Please try again."
-        return render_template('synoptyk.html', error=error_message)
+        invalidCity = f"{city}"
+        return render_template('synoptyk.html', error=invalidCity)
     else:
         weather = {
             'city': city,
@@ -83,7 +83,10 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-
+        confirm_password = request.form['confirm_password']
+        if password != confirm_password:
+            errorconfPass = "Passwords do not match. Please try again."
+            return render_template('register.html', error=errorconfPass)
         cursor = db.cursor()
         query = "INSERT INTO usersdata (username, password) VALUES (%s, %s)"
         values = (username, password)
@@ -129,4 +132,4 @@ def pro_wether():
     return render_template('pro.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5005)
