@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 db = mysql.connector.connect(
     port="3306",
-    host='db',  #172.31.0.2 bladsky dhcp syka 4 hour yebal just use domen llike- db. FUCK!!! no dla testov ono not working treba IP ...
+    host='localhost',  #172.31.0.2 bladsky dhcp syka 4 hour yebal just use domen llike- db. FUCK!!! no dla testov ono not working treba IP ...
     user='dev',
     password='Ag111^@ergnuio',
     database='prodMain'
@@ -36,6 +36,7 @@ def get_weather():
             'description': response['weather'][0]['main'],
         }
         return render_template('synoptyk.html', weather=weather)
+
 
 @app.route('/proweather', methods=['POST'])
 def ProGet_weather():
@@ -123,13 +124,16 @@ def login():
 def synoptyk_for_user():
     return render_template('synoptyk.html')
 
+
 @app.route('/index_pro')
 def index_pro():
     return render_template('index_pro.html')
 
+
 @app.route('/pro')
 def pro_wether():
     return render_template('pro.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5005)
