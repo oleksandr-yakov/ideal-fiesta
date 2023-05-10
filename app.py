@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 db = mysql.connector.connect(
     port="3306",
-    host='localhost',  #172.31.0.2 bladsky dhcp syka 4 hour yebal just use domen llike- db. FUCK!!! no dla testov ono not working treba IP ...
+    host='localhost',  
     user='dev',
     password='Ag111^@ergnuio',
     database='prodMain'
