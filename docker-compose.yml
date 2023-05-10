@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    container_name: once_app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    restart: on-failure
+  db:
+    image: mysql:8.0
+    container_name: once_mysql
+    environment:
+      MYSQL_DATABASE: prodMain
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: Ag111^@ergnuio
+      MYSQL_ROOT_PASSWORD: nuhayserver
+    ports:
+      - "3305:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+  tg:
+    build: ./TgBot
+    container_name: once_tg
+    depends_on:
+      - db
+    restart: always
+
+
+volumes:
+  db_data:
+
+
+
+
+
+
