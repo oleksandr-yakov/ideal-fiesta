@@ -46,9 +46,12 @@ services:
       - db
       - app
     restart: on-failure
+    volumes:
+      - grafana_data:/var/lib/grafana
 
 volumes:
   db_data:
+  grafana_data:
 
 
 
