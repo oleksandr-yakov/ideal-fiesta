@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import requests, datetime, mysql.connector, unittest
+import requests, datetime, mysql.connector
 from config import TOKEN
 
 app = Flask(__name__)
