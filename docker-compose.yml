@@ -27,7 +27,8 @@ services:
       - db
     restart: always
 
-#test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+#test
+
 
 volumes:
   db_data:
