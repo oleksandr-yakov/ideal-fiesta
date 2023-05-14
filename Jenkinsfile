@@ -32,7 +32,9 @@ pipeline {
         //   }
         // }
         stage('Checkout'){
-          checkout scm
+          steps {
+            checkout scm
+          }
        }
         stage('Setup') {
             steps {
