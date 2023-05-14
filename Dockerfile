@@ -3,7 +3,9 @@ WORKDIR /app
 
 COPY requirements.txt .
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt \
+    && pip install --upgrade mysql-connector-python
+
 COPY ./App .
 
 ENV FLASK_APP=app.py
