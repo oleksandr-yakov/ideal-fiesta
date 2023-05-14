@@ -33,7 +33,7 @@ services:
     container_name: once_tg
     depends_on:
       - db
-    restart: always
+
     networks:
       main-net:
         ipv4_address: 172.16.238.4
