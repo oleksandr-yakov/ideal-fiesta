@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import requests, datetime, mysql.connector
 from config import TOKEN
-#huipizda
+#huipizda1
 app = Flask(__name__)
 
 db = mysql.connector.connect(
