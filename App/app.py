@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import requests, datetime, mysql.connector
 from config import TOKEN
 
-#fdsfsd fd
+#fdsfsd fddsdsads
 
 app = Flask(__name__)
 
