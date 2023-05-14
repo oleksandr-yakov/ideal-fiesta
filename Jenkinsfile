@@ -11,20 +11,9 @@ pipeline {
     }
     stages {
         stage('Clone repository') {
-            steps {
-                script {
-                    try {
-                        sh """#!/bin/bash
-                        cd $WORKSPACE
-                        git pull git@github.com:oleksandr-yakov/ideal-fiesta.git
-                        pwd
-                        """
-                    } catch (Exception e) {
-                        error("Clone repository went wrong")
-                        currentBuild.result = "FAILURE"
-                    }
-                }
-            }
+          steps {
+                checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'slave', url: 'https://github.com/oleksandr-yakov/ideal-fiesta.git']])
+          }
         }
         stage('Setup') {
             steps {
