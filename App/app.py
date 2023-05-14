@@ -2,8 +2,6 @@ from flask import Flask, render_template, request
 import requests, datetime, mysql.connector
 from config import TOKEN
 
-#fdsfsd fddsdsads
-
 app = Flask(__name__)
 
 db = mysql.connector.connect(
